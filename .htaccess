@@ -1,0 +1,8 @@
+AddType application/javascript .js
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+# Disable directory listing
+Options -Indexes
+
+# Prevent viewing of PHP files

@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between user list and messages */
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh; /* Full viewport height */
+    padding: 20px; /* Optional padding */
+}
+
+.listofusers {
+    width: 30%; /* Set width */
+    height: 90vh; /* Set height */
+    background: #fff; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); /* Shadow effect */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 15px; /* Inner padding */
+}
+
+.messages-container {
+    width: 65%; /* Set width for messages */
+    height: 90vh; /* Set height */
+    background: #f9f9f9; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); /* Shadow effect */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 15px; /* Inner padding */
+}
+
+.message-item {
+    padding: 10px; /* Inner padding for message items */
+    border-bottom: 1px solid #eee; /* Divider between messages */
+}
+
+.user-item {
+    padding: 10px; /* Inner padding for user items */
+    border-bottom: 1px solid #eee; /* Divider between users */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.user-item:hover {
+    background: #f0f0f0; /* Highlight background on hover */
+}
+
+/* Chat container */
+.chat-container {
+    width: 65%; /* Larger chat section */
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.chat-header {
+    background-color: #153677; /* Dark blue background for the header */
+    color: white; /* White text color */
+    padding: 15px; /* Padding around the header */
+    border-top-left-radius: 10px; /* Rounded corners */
+    border-top-right-radius: 10px; /* Rounded corners */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.receiver-username {
+    font-size: 24px; /* Adjust font size for the username */
+    font-weight: bold; /* Make the username bold */
+    margin: 0; /* Remove default margin */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chat-header {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .receiver-username {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+}
+
+.chat-container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Chat messages */
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 80%; /* Take up most of the container */
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Message styling */
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 60%; /* Limit the width of messages */
+    word-wrap: break-word;
+    position: relative;
+    clear: both;
+}
+
+.sent {
+    background-color: #a8d0fa; /* Light blue background for sent messages */
+    float: right; /* Align to the right */
+    border-top-right-radius: 0; /* Adjust the border-radius */
+    text-align: left; /* Text inside will be left-aligned */
+    margin-left: auto; /* Automatically take up the remaining space on the left */
+    margin-right: 0; /* Align to the right edge */
+}
+
+.received {
+    background-color: #cacaca; /* Light gray background for received messages */
+    float: left; /* Align to the left */
+    text-align: left; /* Text inside will be left-aligned */
+    border-top-left-radius: 0; /* Adjust the border-radius */
+}
+
+.message-content {
+    display: flex; /* Use flexbox for message content */
+    flex-direction: column; /* Stack items vertically */
+    max-width: 100%; /* Allow the message text to fit inside the bubble */
+}
+
+.message-actions {
+    margin-top: 5px;
+    text-align: right; /* Align the reply button to the right */
+}
+
+/* Styles for the reply button */
+.reply-button {
+    background-color: transparent; /* Remove background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor */
+    font-size: 18px; /* Adjust icon size */
+    color: #51575f; /* Primary blue color for the icon */
+    padding: 5px;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.reply-button:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.reply-button:active {
+    transform: scale(0.95); /* Slightly scale down when clicked */
+}
+
+/* File display styles */
+.thumbnail {
+    margin-top: 5px;
+}
+
+/* Reply message display */
+.reply-message {
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* New Feature: Seen/Unseen status for messages */
+.seen-status {
+    font-size: 0.8em;
+    color: green;
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.unseen-status {
+    font-size: 0.8em;
+    color: red;
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+/* Chat form */
+.chat-form {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #f5f5f5;
+    border-top: 1px solid #ddd;
+}
+
+#message-input {
+    flex: 1;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 10px;
+    resize: none !important; /* Enforce the rule */
+    box-sizing: border-box;
+}
+
+#file-input {
+    margin-right: 10px;
+}
+
+#send-button {
+    padding: 10px 20px;
+    background-color: #153677;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #0c2552;
+}
+
+/* New Feature: Typing Indicator */
+.typing-indicator {
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 10px;
+    align-self: flex-start;
+}
+
+/* Add some responsive design */
+@media (max-width: 768px) {
+    .listofusers, .chat-container {
+        width: 100%;
+        height: 100vh;
+    }
+
+}
+
+.chat-messages {
+    flex: 1; /* Allow it to take available space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column; /* Align messages from top to bottom */
+    justify-content: flex-start; /* Ensure new messages appear at the bottom */
+    padding: 20px; /* Add some padding */
+}
+.reply-indicator {
+    background-color: #e8f0fe; /* Soft blue background for visibility */
+    border: 1px solid #a0c1ff; /* Light blue border */
+    border-radius: 8px; /* Slightly more rounded corners */
+    padding: 12px; /* Slightly more padding for a better feel */
+    margin: 12px 0; /* Increased margin for spacing */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    font-size: 15px; /* Slightly larger font size */
+    color: #2c3e50; /* Darker blue-gray text color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.reply-indicator strong {
+    margin-right: 6px; /* Spacing between the strong text and the message display */
+    font-weight: 600; /* Slightly bolder weight for emphasis */
+   
+}
+
+#dismiss-reply {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: #d9534f; /* Bootstrap danger color for the close button */
+    font-weight: bold; /* Make it bold */
+    margin-left: auto; /* Push the button to the right */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+   
+}
+
+#dismiss-reply:hover {
+    color: #c9302c; /* Darker red on hover */
+}.reply-image {
+    max-width: 50px; /* Limit the size of the reply image */
+    max-height: 50px; /* Limit the height of the reply image */
+    margin-left: 10px; /* Space between text and image */
+}

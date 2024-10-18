@@ -1,0 +1,474 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-color: #FDFFFC;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background: none;
+}
+body::-webkit-scrollbar-thumb {
+    background: #352208;
+    border-radius: 10px;
+}
+.navigation {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+    color: #352208;
+    font-weight: 600;
+}
+.header {
+    padding: 10px;
+    background: rgba(248, 248, 248, 0.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(14.5px);
+    backdrop-filter: blur(14.5px);
+    border: 1px solid rgba(248, 248, 248, 0.77);
+}
+.logo {
+    font-size: clamp(1rem, 2vw, 3rem);
+    font-weight: 600;
+    color: #352208;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+.plant {
+    background: url(plant-bazaar.jpg);
+    background-size: contain;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.fa-spa {
+    margin-left: 0.5rem;
+    background: url(plant-bazaar.jpg);
+    background-size: contain;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+/* Basic styling for navigation */
+.nav1 a,
+.login-signup a {
+    text-decoration: none; /* Remove default underline */
+    color: #352208; /* Text color */
+    font-size: 16px; /* Adjust text size */
+    margin: 0 10px; /* Spacing between links */
+    position: relative; /* Necessary for underline animation */
+    padding: 5px 0; /* Padding for a better click area */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.nav1 a:hover,
+.login-signup a:hover {
+    color: #352208; /* Change color on hover (you can customize) */
+}
+
+/* Underline effect */
+.nav1 a::after,
+.login-signup a::after {
+    content: ''; /* Create the underline */
+    position: absolute;
+    width: 0%; /* Start with no width */
+    height: 2px; /* Thickness of the underline */
+    bottom: 0; /* Position at the bottom of the link */
+    left: 0;
+    background-color: #352208; /* Color of the underline (customizable) */
+    transition: width 0.3s ease; /* Smooth transition for width expansion */
+}
+
+.nav1 a:hover::after,
+.login-signup a:hover::after {
+    width: 100%; /* Expand the underline to full width on hover */
+}
+.newly-header {
+    font-size: clamp(1rem, 2vw, 3rem);
+    font-weight: 600;
+    color: #352208;
+    margin-bottom: 2rem;
+}
+/* Hamburger hidden by default */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px; /* Position it below the header */
+    right: 20px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav1,
+    .login-signup {
+        display: none; /* Hide normal navigation */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+
+    .dropdown-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .dropdown-menu.show {
+        display: flex; /* Show dropdown on toggle */
+    }
+}
+
+.newly-listed {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.locations {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.plant-location {
+    margin: 5px 0;
+}
+
+.location-btn {
+    padding: 10px;
+    border: none;
+    background-color: #0A0908;
+    color: #FDFFFC;
+    border: #333 solid 1px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}
+.newly-contents {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.plant-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.plant-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.plant-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.plant-item p {
+    margin: 5px 0;
+}
+.plant-item-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}
+.view-details {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #386641;
+    color: #FDFFFC;
+    font-weight: 600;
+    cursor: pointer;
+}
+.chat-seller {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #0A0908;
+    color: #FDFFFC;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+    backdrop-filter: blur(5px); /* Blurred background effect */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #FDFFFC;
+    margin: 7% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 80%;
+    max-width: 400px; /* Limit the width */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: modalFade 0.3s ease-in-out;
+}
+
+/* Modal fade-in animation */
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close button (X) */
+.modal-content .close {
+    color: #333;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-content .close:hover {
+    color: #ff0000;
+}
+
+/* Modal heading */
+.modal-content h2 {
+    text-align: center;
+    color: #352208;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Form inputs styling */
+.modal-content input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content input:focus {
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #386641;
+}
+
+/* Submit buttons */
+.modal-content button {
+    width: 100%;
+    background-color: #386641;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #2d5233;
+}
+
+/* Modal footer (optional link to switch forms) */
+.modal-content p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.modal-content a {
+    color: #386641;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.modal-content a:hover {
+    text-decoration: underline;
+}
+
+.profile-link{
+    text-decoration: none;
+    color: #352208;
+    font-weight: 600;
+}
+.profile-link img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.dropdown-profile {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown-profile.show {
+    display: flex; /* Show dropdown on toggle */
+}
+.dropdown-profile a {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+.dropdown-profile p{
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+.dropdown-profile a:hover {
+    background-color: #f4f4f4;
+}
+
+#signupModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1600px; /* Set the desired width */
+    max-width: 100%; /* Ensure responsiveness on smaller screens */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); /* Background blur effect */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Ensure body doesn't scroll when modal is open */
+body.modal-open {
+    overflow: hidden; /* Hide body overflow */
+}
+
+/* Sign-up form styling */
+#signupModal form {
+
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of inputs */
+    gap: 20px; /* Space between inputs */
+}
+.error {
+    border: 1px solid red;
+}
+
+.error-label {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Seller Application Modal styles */
+#sellerApplicationModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+  }
+  
+  #sellerApplicationModal .modal-content {
+    background-color: #FDFFFC;
+    margin: 7% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: modalFade 0.3s ease-in-out;
+  }
+  
+  #sellerApplicationModal .close {
+    color: #333;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }

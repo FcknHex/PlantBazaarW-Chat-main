@@ -1,0 +1,360 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #FDFFFC;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Categories container */
+.categories-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Categories hover effect */
+.categories-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.plant-type,
+.plant-size,
+.plant-location {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+button.clear-all {
+    align-self: flex-start;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+button.clear-all:hover {
+    background-color: #c00;
+}
+
+/* Checkbox groups */
+.plant-type-items,
+.plant-size-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Listed plants container */
+.listed-plants {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sort container */
+.sort-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.sort-price-dropdown {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sort-price-dropdown:focus {
+    border-color: #386641;
+}
+
+/* Plant items grid */
+.newly-contents {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Ensure consistent size for plant images with white border */
+.plant-item {
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Rounder card corners */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.plant-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust image size and aspect ratio */
+.plant-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* White background as border */
+    overflow: hidden;
+    border-radius: 10px; /* Rounder corners */
+    position: relative;
+}
+
+/* Ensure the images maintain aspect ratio and fit within the container */
+.plant-image img {
+    max-width: 100%; /* Ensure the image width fits within the container */
+    max-height: 100%; /* Ensure the image height fits within the container */
+    object-fit: contain; /* Display image fully with borders if needed */
+    background-color: #fff;
+}
+
+.plant-item p {
+    margin: 10px 0;
+    color: #333;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Rounder buttons with larger padding */
+.plant-item-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+button.view-details,
+button.chat-seller {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px; /* Rounder buttons */
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+button.view-details {
+    background-color: #386641;
+}
+
+button.view-details:hover {
+    background-color: #274528;
+}
+
+button.chat-seller {
+    background-color: #0A0908;
+}
+
+button.chat-seller:hover {
+    background-color: #333;
+}
+
+/* Responsive design for tablets and mobile devices */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .categories-container {
+        width: 100%;
+    }
+
+    .listed-plants {
+        width: 100%;
+    }
+
+    .sort-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sort-price-dropdown {
+        width: 100%;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .plant-image {
+        height: 150px; /* Adjust image height for smaller screens */
+    }
+
+    button.view-details,
+    button.chat-seller {
+        padding: 10px 15px; /* Slightly smaller buttons for mobile */
+        font-size: 0.85rem;
+    }
+}
+
+/* Responsive design for smaller mobile devices */
+@media (max-width: 600px) {
+    .newly-contents {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    h1, h3 {
+        font-size: 1.4rem;
+    }
+
+    .plant-item img {
+        height: 150px;
+    }
+
+    button.view-details,
+    button.chat-seller {
+        font-size: 0.9rem;
+    }
+}
+
+/* Modal styles for categories on mobile view */
+.categories-modal {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.categories-modal-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #000;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.categories-modal-btn {
+    display: none;
+    padding: 10px 20px;
+    background-color: #0A0908;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.categories-modal-btn:hover {
+    background-color: #333;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Show button and modal only on small screens */
+@media (max-width: 768px) {
+    .categories-container {
+        display: none; /* Hide categories container on small screens */
+    }
+
+    .categories-modal-btn {
+        display: block; /* Show the trigger button on mobile */
+    }
+}
+
+/* Modal open state */
+.categories-modal.show {
+    right: 0;
+}
+
+/* General styles for better mobile view */
+@media (max-width: 768px) {
+    .sort-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sort-price-dropdown {
+        width: 100%;
+    }
+
+    .newly-contents {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+

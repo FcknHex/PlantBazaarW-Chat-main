@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif; /* Use your preferred font */
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.seller-profile {
+    max-width: 800px; /* Set max width for profile */
+    margin: 10px auto; /* Reduce space above the profile */
+    background: #ffffff; /* White background for profile */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px; /* Padding around profile */
+    margin-bottom: 40px; /* Space above profile */
+}
+
+.backBtn-container {
+    margin-bottom: 20px; /* Space below the back button */
+}
+.back-btn {
+    position: absolute; /* Fixed position within the layout */
+    top: 30px; /* Adjusted position under the logo, if needed */
+    left: 220px; /* Adjust as necessary for layout */
+    background-color: #4CAF50; /* Match the green background */
+    color: white; /* White text for better visibility */
+    padding: 8px 16px; /* Reduced padding for a smaller button */
+    font-size: 14px; /* Reduced font size to make it smaller */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Change cursor to pointer */
+    z-index: 1000; /* Ensure it is above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    margin-top: -15px; /* Adjust margin to fit the design */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.back-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+.seller-info {
+    text-align: center; /* Center-align seller info */
+    margin-bottom: 30px; /* Space below seller info */
+}
+
+.seller-info img {
+    width: 150px; /* Fixed width for profile picture */
+    height: 150px; /* Fixed height for profile picture */
+    border-radius: 50%; /* Circular profile picture */
+    object-fit: cover; /* Maintain aspect ratio */
+    cursor: pointer; /* Pointer cursor for clickable image */
+}
+
+h2, h3 {
+    margin: 10px 0; /* Margins for headings */
+}
+
+h3 {
+    color: #333; /* Darker color for name */
+}
+
+.plant-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    margin: 10px 0; /* Reduce space above plant listings */
+}
+
+.plant-card {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center items */
+    background-color: #ffffff; /* White background for cards */
+    padding: 10px; /* Reduced padding for smaller card size */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.2s; /* Transition for hover effect */
+    position: relative; /* To position the button at the bottom */
+    height: 250px; /* Reduced height for smaller card */
+    margin-top: 5px; /* Add a little space above the card */
+}
+
+
+.plant-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.plant-img-container {
+    width: 100%; /* Full width for image container */
+    height: 150px; /* Fixed height for image */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 8px; /* Rounded corners for image container */
+}
+
+.plant-img {
+    width: 100%; /* Full width for image */
+    height: 100%; /* Full height for image */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.plant-details {
+    text-align: center; /* Center-align text */
+    flex-grow: 1; /* Allow this section to grow */
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Show plant name */
+.plant-details h4 { /* Show the plant name */
+    display: block; /* Ensure plant name is displayed */
+    margin: 10px 0; /* Margins for the plant name */
+    flex-grow: 1; /* Allow the plant name to take space */
+    min-height: 40px; /* Set a minimum height for alignment */
+    text-align: center; /* Center the text */
+}
+
+/* Hide the description */
+.plant-details p { /* Hide the description */
+    display: none; /* Hide description */
+}
+
+/* Keep the button fixed at the bottom */
+.view-details {
+    background-color: #28a745; /* Green background for button */
+    color: #ffffff; /* White text */
+    border: none; /* No border */
+    padding: 10px; /* Padding for button */
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for button */
+    transition: background-color 0.3s; /* Transition for hover */
+    margin-top: auto; /* Space above button, push it to the bottom */
+    width: 150px; /* Fixed width for button */
+    text-align: center; /* Center align text in button */
+}
+
+/* Hover effect for button */
+.view-details:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Zoom Modal Styles */
+#zoom-modal, #zoom-plant-modal {
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed position */
+    z-index: 1000; /* On top of other elements */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scrolling */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+}
+
+#zoom-modal img, #zoom-plant-modal img {
+    margin: auto; /* Center the images */
+    display: block; /* Block display for images */
+    max-width: 90%; /* Max width for images */
+    max-height: 90%; /* Max height for images */
+}
+
+.close {
+    position: absolute; /* Position for close button */
+    top: 20px; /* Distance from top */
+    right: 30px; /* Distance from right */
+    color: white; /* White color for close button */
+    font-size: 30px; /* Font size */
+    font-weight: bold; /* Bold font */
+    cursor: pointer; /* Pointer cursor */
+}

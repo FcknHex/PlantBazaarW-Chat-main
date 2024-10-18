@@ -1,0 +1,70 @@
+/* Form Container */
+#addProductForm {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Labels */
+#addProductForm label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #352208;
+    font-size: clamp(1rem, 1vw, 1.5rem); /* Responsive font size */
+}
+
+/* Form Inputs */
+#addProductForm input[type="text"],
+#addProductForm input[type="number"],
+#addProductForm input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus effect for inputs */
+#addProductForm input:focus {
+    background-color: #fff;
+    border-color: #5B8C5A;
+    outline: none;
+}
+
+/* Submit Button */
+#addProductForm button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #386641;
+    color: #FDFFFC;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addProductForm button[type="submit"]:hover {
+    background-color: #2d5233;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #addProductForm {
+        padding: 1.5rem;
+    }
+
+    #addProductForm button[type="submit"] {
+        font-size: 1rem;
+    }
+}

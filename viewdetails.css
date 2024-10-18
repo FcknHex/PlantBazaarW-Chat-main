@@ -1,0 +1,373 @@
+/* General Layout for the Container */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.plantContainer {
+    width: 70%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profileContainer {
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Back Button Styling */
+.back-button {
+    position: absolute; /* Fixed position within the layout */
+    top: 100px; /* Adjusted so it's under the logo */
+    left: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+    background-color: #388E3C;
+}
+
+/* Card Image Styling */
+.card-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+.card-image-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Image Navigation Buttons */
+.card-image-controls {
+    position: absolute;
+    top: 50%;
+    left: 0; /* Adjust to move arrows away from the image */
+    right: -10px; /* Adjust to move arrows away from the image */
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: calc(92.1% + 60px); /* Adjust width to include button space */
+    pointer-events: none; /* Ensure buttons are clickable but don't affect image */
+}
+
+.card-image-controls button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    padding: 10px 15px;
+    z-index: 1000;
+    pointer-events: all; /* Ensure buttons are clickable */
+}
+
+.card-image-controls button:hover {
+    background-color: #45a049;
+}
+
+/* Card Content with Limited Description */
+.card-content {
+    text-align: left;
+    margin-top: 20px;
+    max-height: 200px; /* Limit the height of the content */
+    overflow: hidden; /* Hide extra content */
+    position: relative;
+}
+
+.card-content.expanded {
+    max-height: none; /* Show full content when expanded */
+}
+
+.card-content h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.card-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-content .plant-details p {
+    margin-bottom: 10px;
+}
+
+.card-content .plant-details strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* View More Button */
+.view-more-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, white, transparent); /* Gradual fade for 'View More' */
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+.view-more-btn:hover {
+    color: #388E3C;
+}
+
+/* Seller Profile Section */
+.seller-profile {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.seller-profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.seller-profile h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.seller-profile p {
+    font-size: 16px;
+    color: #555;
+}
+
+.seller-profile button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.seller-profile button:hover {
+    background-color: #388E3C;
+}
+
+/* General Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+    justify-content: center; /* Horizontally center modal content */
+    align-items: center; /* Vertically center modal content */
+    overflow: auto; /* Allow scrolling for smaller screens */
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 8px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image is contained and not distorted */
+    border-radius: 10px;
+    margin: auto; /* Center the image within the modal */
+}
+
+/* Modal Navigation Buttons (Next/Previous) */
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1001;
+    transition: background-color 0.3s;
+}
+
+.modal-nav-btn:hover {
+    background-color: #388E3C;
+}
+
+#zoom-prev-btn {
+    left: 1%; /* Positioning it outside the image */
+ 
+}
+
+#zoom-next-btn {
+    right: 1%; /* Positioning it outside the image */
+}
+
+/* Close Button Inside Modal */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+}
+
+/* Adjust button size for mobile */
+@media (max-width: 768px) {
+    .modal-nav-btn {
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    #zoom-prev-btn {
+        left: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #zoom-next-btn {
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .view-more-btn{
+        font-size: 10px;
+    }
+    .modal-nav-btn {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+
+    #zoom-prev-btn {
+        left: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #zoom-next-btn {
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+  
+
+    .modal-content {
+        max-width: 100%;
+        max-height: 90%;
+    }
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plantContainer, .profileContainer {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card-content h1 {
+        font-size: 22px;
+    }
+
+    .card-content p {
+        font-size: 16px;
+    }
+
+    .seller-profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .seller-profile h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card-content h1 {
+        font-size: 20px;
+    }
+
+    .card-content p {
+        font-size: 14px;
+    }
+
+    .seller-profile img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .seller-profile h3 {
+        font-size: 14px;
+    }
+}
